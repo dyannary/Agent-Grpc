@@ -1,8 +1,6 @@
 using Broker.Services;
 using Broker.Services.Interfaces;
 
-AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", false);
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
