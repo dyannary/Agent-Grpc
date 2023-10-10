@@ -20,11 +20,23 @@ namespace Broker.Services
 
             var content = new Content(request.Topic, request.Message);
             _messageStorageService.Add(content);
+            _messageStorageService.AddTopic(content.Topic);
+
 
             return Task.FromResult(new PublishReply()
             {
                 IsSuccess = true
             });
+        }
+        
+        public override Task<TopicList> GetSavedTopics(GetSavedTopicsRequest request, ServerCallContext context)
+        {
+            List<string> savedTopics = _messageStorageService.GetSavedTopics();
+
+            var topicList = new TopicList();
+            topicList.Topics.AddRange(savedTopics);
+
+            return Task.FromResult(topicList);
         }
     }
 }

@@ -6,6 +6,7 @@ package GrpcsAgent;
 
 service Publisher {
   rpc PublishMessage (PublishRequest) returns (PublishReply);
+  rpc GetSavedTopics (GetSavedTopicsRequest) returns (TopicList);
 }
 
 message PublishRequest {
@@ -15,4 +16,14 @@ message PublishRequest {
 
 message PublishReply {
   bool isSuccess = 1;
+}
+
+message GetSavedTopicsRequest {}
+
+message GetSavedTopicsReply {
+  repeated string topics = 1;
+}
+
+message TopicList {
+  repeated string topics = 1;
 }
