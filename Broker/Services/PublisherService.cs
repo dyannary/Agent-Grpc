@@ -31,7 +31,7 @@ namespace Broker.Services
         
         public override Task<TopicList> GetSavedTopics(GetSavedTopicsRequest request, ServerCallContext context)
         {
-            List<string> savedTopics = _messageStorageService.GetSavedTopics();
+            var savedTopics = _messageStorageService.GetSavedTopics();
 
             var topicList = new TopicList();
             topicList.Topics.AddRange(savedTopics);
