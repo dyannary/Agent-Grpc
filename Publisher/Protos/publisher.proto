@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcsAgent";
+
+package GrpcsAgent;
+
+service Publisher {
+  rpc PublishMessage (PublishRequest) returns (PublishReply);
+  rpc GetSavedTopics (GetSavedTopicsRequest) returns (TopicList);
+}
+
+message PublishRequest {
+  string topic = 1;
+  string message = 2;
+}
+
+message PublishReply {
+  bool isSuccess = 1;
+}
+
+message GetSavedTopicsRequest {}
+
+message GetSavedTopicsReply {
+  repeated string topics = 1;
+}
+
+message TopicList {
+  repeated string topics = 1;
+}
