@@ -1,0 +1,12 @@
+{
+  "name": "lab1.2_js",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.9.5",
+    "@grpc/proto-loader": "^0.7.10",
+    "google-protobuf": "^3.21.2",
+    "grpc-tools": "^1.12.4",
+    "grpc-web": "^1.4.2"
+  }
+}
